@@ -1,0 +1,48 @@
+---
+title: "MyAvaliation"
+author: "Julio Cesar Marques"
+date: '2022-05-09'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r echo=FALSE}
+library(leaflet)
+my_map <- leaflet() %>% addTiles()
+
+```
+
+```{r , echo=FALSE}
+library(leaflet)
+my_map <- my_map %>% addMarkers(lat=39.2980803, lng = -76.5898801,popup = "Jeff Leek's Offifce")
+
+my_map <- leaflet() %>% addTiles() %>% addMarkers(lat=39.2980803, lng = -76.5898801,popup = "Jeff Leek's Offifce")
+
+# my_map = addMarkers(lat=39.2980803, lng = -76.5898801,popup = "Jeff Leek's Offifce")
+# my_map
+```
+
+## Adicionando multiplos marcadores
+
+```{r , echo=FALSE}
+set.seed(2016-04-25)
+df <- data.frame(lat = runif(20, min = 39.2, max = 39.3),
+                 lng = runif(20, min = -76.6, max = -76.5))
+
+my_map <- df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers()
+
+my_map
+```
+
+
+## R Markdown
+
+This is an R Markdown presentation. 
+20 Markers for latitude and longitudes from Baltimore

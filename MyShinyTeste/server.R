@@ -16,9 +16,6 @@ server <- function(input, output, session) {
   sample_cars <- reactive({
     set.seed(8675309)  # for some consistent sampling
     df <- mtcars[sample(x=1:nrow(mtcars), size = input$numeric),]
-    #    dx <- filter(df,~wt == input$sliderx)
-    #    if(input$carbs != "All")
-    #      df <- df %>% dplyr::filter(carb == input$carbs)
     return(df)
   })  
   

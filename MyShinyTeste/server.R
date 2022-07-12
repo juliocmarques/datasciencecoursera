@@ -24,7 +24,7 @@ server <- function(input, output, session) {
     height = function() input$slidery,
     
     {
-      main <- ifelse(input$show_title,paste('You selected',input$numeric, 'cars\n'),"")
+      main <- ifelse(input$show_title,paste('Selecionado',input$numeric, 'ponto(s)\n'),"")
       
       ggplot(sample_cars(), aes(wt, mpg)) + geom_point() +
         labs(title=main)       

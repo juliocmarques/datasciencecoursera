@@ -17,15 +17,15 @@ ui <- fluidPage(
     sidebarPanel(
       numericInput("numeric","Qual a quantidade de randerização no gráfico?",
                    value=nrow(mtcars),min=1,max=nrow(mtcars),step=1),
-      sliderInput("sliderx","Largura mínimo e máximo para eixo X",
+      sliderInput("sliderx","Largura mínimo e máximo eixo X",
                   min = 100, max = 550, value = 250),
-      sliderInput("slidery","Altura mínimo e máximo para eixo Y",
+      sliderInput("slidery","Altura mínimo e máximo eixo Y",
                   min = 100,max = 415,value = 250),
-      checkboxInput("show_title","Show Hide Title")
+      checkboxInput("show_title","Visualizar título")
     ),
     # Show a plot of the generated distribution
     mainPanel(
-      h3("Graph of Random Points"),
+      h3("Gráfico de pontos aleatórios"),
       plotOutput("plot", brush = "plot_brush")
     )
   ),

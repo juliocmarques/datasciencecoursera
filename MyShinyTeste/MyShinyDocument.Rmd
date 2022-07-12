@@ -13,7 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Km rodado por peso
 
-**Descrição**
+**Descrição:**
+
 Este documento tem por objeto esclarecer as funcionalidaddes do aplicativo.
 O Aplicativo consiste na visualização gráfica e tabela de detalhes, de km rodado por peso.
 
@@ -59,9 +60,9 @@ head(mtcars)
 
 ## 2. Entradas e Saidas
 
-### 2.1 Funcionalidades**
+### 2.1 Funcionalidades
 
-*Painel (Entradas): *
+**Painel (Entradas):**
 
 - Seletor númerico, o usuário poderá definir quantos pontos(carros) queremos  visualizar no grárico, sendo este por default a quantidade de registros do conjunto de dados.
 
@@ -71,22 +72,22 @@ head(mtcars)
 
 - Check box, para ocultar/visualizar o título.
 
-```{r eruptions, echo=FALSE}
+```{r eruptions, echo=FALSE, comment=""}
 require(ggplot2)
 
   sidebarLayout(
     sidebarPanel(
       numericInput("numeric","Qual a quantidade de randerização no gráfico?",
                    value=nrow(mtcars),min=1,max=nrow(mtcars),step=1),
-      sliderInput("sliderx","width minimum e maximum X Values",
+      sliderInput("sliderx","Largura mínimo e máximo eixo X",
                   min = 100, max = 550, value = 250),
-      sliderInput("slidery","height minimum e maximum y Values",
+      sliderInput("slidery","Altura mínimo e máximo eixo Y",
                   min = 100,max = 415,value = 250),
-      checkboxInput("show_title","Show Hide Title")
+      checkboxInput("show_title","Visualizar título")
     ),
     # Show a plot of the generated distribution
     mainPanel(
-      h3("Graph of Random Points"),
+      h3("Gráficos de pontos aleatórios"),
       plotOutput("plot", brush = "plot_brush")
     )
   )
@@ -104,7 +105,7 @@ require(ggplot2)
     height = function() input$slidery,
     
     {
-      main <- ifelse(input$show_title,paste('You selected',input$numeric, 'cars\n'),"")
+      main <- ifelse(input$show_title,paste('Selecionado',input$numeric, 'ponto(s)\n'),"")
       
       ggplot(sample_cars(), aes(wt, mpg)) + geom_point() +
         labs(title=main)       

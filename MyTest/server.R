@@ -16,9 +16,9 @@ server <- function(input, output, session) {
   sample_cars <- reactive({
     set.seed(8675309)  # for some consistent sampling
     df <- mtcars[sample(x=1:nrow(mtcars), size = input$numeric),]
-    #    dx <- filter(df,~wt == input$sliderx)
-    #    if(input$carbs != "All")
-    #      df <- df %>% dplyr::filter(carb == input$carbs)
+#    dx <- filter(df,~wt == input$sliderx)
+#    if(input$carbs != "All")
+#      df <- df %>% dplyr::filter(carb == input$carbs)
     return(df)
   })  
   
@@ -27,11 +27,20 @@ server <- function(input, output, session) {
     height = function() input$slidery,
     
     {
-      main <- ifelse(input$show_title,paste('You selected',input$numeric, 'cars\n'),"")
-      
-      ggplot(sample_cars(), aes(wt, mpg)) + geom_point() +
-        labs(title=main)       
-    }, res = 96)
+    # number_of_points <- input$numeric
+    # minX <- input$sliderx[1]
+    # maxX <- input$sliderx[2]
+    # minY <- input$slidery[1]
+    # maxY <- input$slidery[2]
+    # dataX <- runif(number_of_points, minX, maxX)
+    # dataY <- runif(number_of_points, minY, maxY)
+    # xlab <- ifelse(input$show_xlab,"wt","")
+    # ylab <- ifelse(input$show_ylab,"mpg","")
+    main <- ifelse(input$show_title,paste('You selected',input$numeric, 'cars\n'),"")
+    
+    ggplot(sample_cars(), aes(wt, mpg)) + geom_point() +
+      labs(title=main)       
+  }, res = 96)
   
   output$data <- renderTable({
     brushedPoints(mtcars, input$plot_brush)

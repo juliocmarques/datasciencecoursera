@@ -29,4 +29,8 @@ shinyServer(function(input, output) {
       
     })
 
+    output$data <- renderTable({
+      brushedPoints(set.seed(2016-05-25), input$plot_brush)
+    })
+    
 })

@@ -21,6 +21,10 @@ ui <- fluidPage(
                   min = 100, max = 550, value = 250),
       sliderInput("slidery","Pick minimum e maximum y Values",
                   min = 100,max = 415,value = 250),
+#      selectInput("carbs", "Select carb to show",
+#                  choices = c('All', unique(mtcars$carb))),      
+      # checkboxInput("show_xlab","Show/Hide X Axis Label", value = TRUE),
+      # checkboxInput("show_ylab","Show/Hide Y Axis Label", value = TRUE),
       checkboxInput("show_title","Show Hide Title")
     ),
     # Show a plot of the generated distribution

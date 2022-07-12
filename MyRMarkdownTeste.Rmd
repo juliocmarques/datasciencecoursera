@@ -1,0 +1,63 @@
+---
+title: "MyRMarkdownTeste"
+author: "Julio Cesar Marques"
+date: '2022-07-12'
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+```{r cars, echo = TRUE}
+library(shiny)
+library(ggplot2)
+
+ui <- fluidPage(
+  
+  # Sidebar with a slider input for number of bins
+  sidebarLayout(
+    sidebarPanel(
+      numericInput("numeric","Qual a quantidade de randerização no gráfico?",
+                   value=nrow(mtcars),min=1,max=nrow(mtcars),step=1),
+      sliderInput("sliderx","Pick minimum e maximum X Values",
+                  min = 100, max = 550, value = 250),
+      sliderInput("slidery","Pick minimum e maximum y Values",
+                  min = 100,max = 415,value = 250),
+#      selectInput("carbs", "Select carb to show",
+#                  choices = c('All', unique(mtcars$carb))),      
+      checkboxInput("show_xlab","Show/Hide X Axis Label", value = TRUE),
+      checkboxInput("show_ylab","Show/Hide Y Axis Label", value = TRUE),
+      checkboxInput("show_title","Show Hide Title")
+    ),
+    # Show a plot of the generated distribution
+    mainPanel(
+      h3("Graph of Random Points"),
+      plotOutput("plot", brush = "plot_brush"),
+      tableOutput("data")
+    )
+  )
+)
+
+```
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+

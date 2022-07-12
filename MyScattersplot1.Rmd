@@ -1,0 +1,86 @@
+---
+title: "MyFirstPlotly"
+author: "Julio Cesar Marques"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## basic scatterplot is easy to make.
+
+
+indicating 'mode = "markers"'
+
+```{r, eval=FALSE}
+library(plotly)
+plot_ly(mtcars,x = ~wt,y = ~mpg, mode = "markers", color = ~disp, size = ~hp)
+```
+
+## Basic Scatterplot
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE, message=FALSE}
+library(plotly)
+plot_ly(mtcars,x = ~wt,y = ~mpg, mode = "markers", color = as.factor(~cyl))
+```
+
+```{r, eval=FALSE}
+set.seed(2016-07-21)
+temp <- rnorm(100,mean = 30, sd = 5)
+pressue <- rnorm(100)
+dtime <- 1:100
+plot_ly(x = temp,y = pressue, z = dtime, 
+        type = "scatter3d", mode = "markers", color = temp)
+```
+
+## Grafico de linha
+```{r, eval=FALSE}
+data("airmiles")
+plot_ly(x = time(airmiles),y = airmiles)
+```
+
+## Grafico mult-linha
+
+```{r, eval=FALSE}
+library(plotly)
+library(tidyr)
+library(dplyr)
+
+data("EuStockMarkets")
+
+stocks <- as.data.frame(EuStockMarkets) %>%
+  gather(index, price) %>%
+  mutate(time = rep(time(EuStockMarkets), 4))
+
+plot_ly(stocks, x = ~time,y = ~price,color = ~index)
+```
+
+## Histogram
+```{r, eval=FALSE}
+plot_ly(x = precip, type = "histogram")
+```
+##BOX
+```{r, eval=FALSE}
+plot_ly(iris, y = ~Petal.Length,color = ~Species, type = "box")
+```
+##heatmap
+```{r, eval=FALSE}
+terrain1 <- matrix(rnorm(100*100), nrow = 100, ncol = 100)
+plot_ly(z = terrain1,type = "heatmap")
+```
+##surface
+```{r, eval=FALSE}
+terrain2 <- matrix(sort(rnorm(100*100)), nrow = 100, ncol = 100)
+plot_ly(z = terrain2,type = "surface")
+```
+
+
+
+
+
+
+Note that the `message = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

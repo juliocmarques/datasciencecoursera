@@ -32,7 +32,8 @@ shinyUI(fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
           h3("Graph of Random Points"),
-            plotOutput("plot1")
+            plotOutput("plot1", brush = "plot_brush"),
+            tableOutput("data")
         )
     )
 ))

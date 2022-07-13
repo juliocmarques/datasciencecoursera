@@ -1,0 +1,13 @@
+name: MyShinyDocument
+title: MyShinyDocument
+username:
+account: juliocmarques
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6632813
+bundleId: 6092768
+url: https://juliocmarques.shinyapps.io/MyShinyDocument/
+when: 1657661094.84269
+lastSyncTime: 1657661094.8427
+asMultiple: FALSE
+asStatic: FALSE

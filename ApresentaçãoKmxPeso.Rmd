@@ -1,0 +1,72 @@
+---
+title: "ApresentacaoKmxPeso"
+author: "Julio Cesar Marques"
+date: '2022-07-12'
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# **Objetivo:** Analisar Km rodado por peso
+
+**Descrição:**
+
+Este documento tem por objeto esclarecer as funcionalidaddes do aplicativo.
+O Aplicativo consiste na visualização gráfica e tabela de detalhes, de km rodado por peso.
+
+# 1. Dados de exploração
+
+*A conjunto de dados utilizado para exploração será a,* **mtcars** *disponível em (R).*  
+
+## 1.1 história do conjunto de dados
+
+*Os dados foram extraídos da revista Motor Trend US de 1974 e abrangem o consumo de combustível e 10 aspectos do design e desempenho do automóvel para 32 automóveis (modelos de 1973 a 74). Os mesmos desde então foram disponibilizados na base R para treinamentos e estudos.*
+
+###     1.1.1 Descrição das variáveis, em negrito aplicado em nosso app:
+
+ **mpg =	Milhas/(EUA) galão**
+ 
+ cyl	   = numero de cilindros 
+ 
+ disp	 = Deslocamento (cu.in.) 
+ 
+ hp	   = Potência bruta 
+ 
+ drat	 = Relação do eixo traseiro 
+ 
+ **wt	 = Peso (1000 libras)** 
+ 
+ qsec	 = 	tempo de 1/4 de milha 
+ 
+ vs	   = 	Motor (0 = em forma de V, 1 = reto) 
+ 
+ am	   = Transmissão (0 = automática, 1 = manual) 
+ 
+ gear	 = Número de marchas para frente
+
+# 
+
+###     1.1.2 Segue uma leitura abaixo com algumas amostras do conjunto de dados:
+
+registros:
+```{r, comment="", echo=TRUE}
+nrow(mtcars)
+head(mtcars)
+
+```
+
+# 2. Entradas e Saidas
+
+## 2.1 Funcionalidades
+
+**Painel (Entradas):**
+
+- Seletor númerico, o usuário poderá definir quantos pontos(carros) queremos  visualizar no grárico, sendo este por default a quantidade de registros do conjunto de dados.
+
+- Entrada deslisante (Largura mínimo e máximo para eixo X), sendo este definido para visualização de **largura** do gráfico.
+
+- Entrada deslisante (Altura mínimo e máximo para eixo Y), sendo este definido para visualização de **altura** do gráfico.
+
+- Check box, para ocultar/visualizar o título.

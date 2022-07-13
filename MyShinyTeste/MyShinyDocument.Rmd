@@ -118,6 +118,7 @@ require(ggplot2)
 
 Uma das funcionalidade da aplicação é a opção de selecionar area especifica do gráfico e obter detalhes dos pontos em uma tabela de resultado abaixo.
 
+
 ```{r tabsets, echo=FALSE}
 
   output$data <- renderTable({
